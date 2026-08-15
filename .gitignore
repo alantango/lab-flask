@@ -1,0 +1,12 @@
+# Virtual environment folder names
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Local environment/secret files
+.env
+
