@@ -1,5 +1,6 @@
 from flask import Flask
 import datetime as dt
+import os
 
 app = Flask(__name__)
 
@@ -10,5 +11,7 @@ def hello_world():
 
 ## below only needed if you want to run the app directly:
 ##   python -m flask --app app run --debug
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == "__main__":
+    # Only runs debug mode locally; PythonAnywhere sets a 'PYTHONANYWHERE_SITE' variable automatically
+    is_prod = "PYTHONANYWHERE_SITE" in os.environ
+    app.run(debug=not is_prod)
