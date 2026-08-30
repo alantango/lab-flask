@@ -9,8 +9,6 @@ def hello_world():
     time = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     return "<p>Hello form pythonAnywhere, time is now " + time + ".</p>"
 
-## below only needed if you want to run the app directly:
-##   python -m flask --app app run --debug
 if __name__ == "__main__":
     # Only runs debug mode locally; PythonAnywhere sets a 'PYTHONANYWHERE_SITE' variable automatically
     is_prod = "PYTHONANYWHERE_SITE" in os.environ
