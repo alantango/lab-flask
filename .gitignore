@@ -17,3 +17,8 @@ __pycache__/
 instance/
 .db
 .sqlite3
+
+# UI
+node_modules
+client/dist
+client/.env.local
