@@ -1,8 +1,13 @@
 from flask import Flask
+from db import init_db
 import datetime as dt
 import os
 
 app = Flask(__name__)
+app.config["DATABASE"] = "instance/app.db"
+
+with app.app_context():
+    init_db()
 
 @app.route("/")
 def hello_world():
