@@ -1,9 +1,17 @@
 from flask import Flask, jsonify, request
-from db import create_product, delete_product, get_product, init_db, update_product
+from flask_cors import CORS
+from db import *
 import datetime as dt
 import os
 
 app = Flask(__name__)
+CORS(
+    app,
+    resources={
+        r"/products*": {"origins": "http://localhost:5173"},
+        r"/getproducts": {"origins": "http://localhost:5173"},
+    },
+)
 app.config["DATABASE"] = os.path.join(app.instance_path, "app.db")
 os.makedirs(app.instance_path, exist_ok=True)
 
@@ -13,7 +21,7 @@ with app.app_context():
 @app.route("/")
 def hello_world():
     time = dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return "<p>Hello form pythonAnywhere, time is now " + time + ".</p>"
+    return "<p>Hello from pythonAnywhere, time is now " + time + ".</p>"
 
 
 @app.post("/products")
@@ -33,6 +41,11 @@ def add_product():
     )
     return jsonify(get_product(product_id)), 201
 
+
+@app.get("/getproducts")
+def list_products():
+    products = get_products()
+    return jsonify(products)
 
 @app.get("/products/<int:product_id>")
 def get_product_by_id(product_id):

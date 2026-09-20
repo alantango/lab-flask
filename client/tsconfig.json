@@ -5,13 +5,15 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
     "strict": true,
     "jsx": "react-jsx",
     "paths": {
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@styles/*": ["./src/styles/*"],
-      "@config/*": ["./src/config/*"]
+      "@config/*": ["./src/config/*"],
+      "@models/*": ["./src/types/*"]
     }
   },
   "include": ["src"]

@@ -1,1 +1,11 @@
 body { margin: 0; }
+
+.product-table-wrapper { overflow-x: auto; }
+.product-table { border-collapse: collapse; min-width: 620px; width: 100%; }
+.product-table th,
+.product-table td { border-bottom: 1px solid #d8d8d8; padding: 14px 12px; text-align: left; }
+.product-table th { font-size: .8rem; text-transform: uppercase; }
+.product-table td:first-child { white-space: nowrap; }
+.product-table td:nth-child(3) { white-space: nowrap; }
+.row-actions { display: flex; gap: 8px; }
+.sr-only { height: 1px; margin: -1px; overflow: hidden; position: absolute; width: 1px; clip: rect(0, 0, 0, 0); }
